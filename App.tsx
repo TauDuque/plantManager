@@ -1,6 +1,6 @@
 import React from "react";
 import AppLoading from "expo-app-loading";
-import { UserId } from "./src/pages/UserId";
+import Routes from "./src/routes/index";
 import {
   useFonts,
   Jost_400Regular,
@@ -17,15 +17,5 @@ export default function App() {
     return <AppLoading />;
   }
 
-  return <UserId />;
+  return <Routes />;
 }
-
-/* const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
- */

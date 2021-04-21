@@ -12,13 +12,17 @@ import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 
 import { Button } from "../components/Button";
+import { useNavigation } from "@react-navigation/core";
 
 export function UserId() {
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
   const [name, setName] = useState<string>();
+
+  const navigation = useNavigation();
   function handleInputBlur() {
     setIsFocused(false);
+    setIsFilled(!!name);
   }
 
   function handleInputFocus() {
@@ -27,6 +31,11 @@ export function UserId() {
 
   function handleInputChange(value: string) {
     setIsFilled(!!value);
+    setName(value);
+  }
+
+  function handleSubmit() {
+    navigation.navigate("Confirmation");
   }
 
   return (
@@ -46,13 +55,17 @@ export function UserId() {
             </View>
 
             <TextInput
-              style={[styles.input, isFocused && { borderColor: colors.green }]}
+              style={[
+                styles.input,
+                (isFocused || isFilled) && { borderColor: colors.green },
+              ]}
               placeholder="Digite seu nome"
               onBlur={handleInputBlur}
               onFocus={handleInputFocus}
+              onChangeText={handleInputChange}
             ></TextInput>
             <View style={styles.footer}>
-              <Button />
+              <Button title="Confirmar" onPress={handleSubmit} />
             </View>
           </View>
         </View>

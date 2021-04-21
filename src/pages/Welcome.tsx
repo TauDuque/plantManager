@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   SafeAreaView,
   View,
@@ -13,8 +13,15 @@ import { Feather } from "@expo/vector-icons";
 import watering from "../assets/watering.png";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
+import { useNavigation } from "@react-navigation/core";
 
 export function Welcome() {
+  const navigation = useNavigation();
+
+  function handleStart() {
+    navigation.navigate("UserId");
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.wrapper}>
@@ -36,7 +43,11 @@ export function Welcome() {
 
         <TouchableOpacity style={styles.btn} activeOpacity={0.7}>
           <Text>
-            <Feather name="chevron-right" style={styles.btnIcon} />
+            <Feather
+              name="chevron-right"
+              style={styles.btnIcon}
+              onPress={handleStart}
+            />
           </Text>
         </TouchableOpacity>
       </View>
