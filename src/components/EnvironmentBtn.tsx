@@ -1,22 +1,9 @@
-import React, { useState } from "react";
-import {
-  SafeAreaView,
-  StyleSheet,
-  View,
-  Text,
-  TextInput,
-  KeyboardAvoidingView,
-  TouchableWithoutFeedback,
-  Platform,
-  Keyboard,
-} from "react-native";
+import React from "react";
+import { StyleSheet, Text } from "react-native";
 import { RectButton, RectButtonProps } from "react-native-gesture-handler";
-import { useNavigation } from "@react-navigation/core";
 
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
-
-import { Button } from "../components/Button";
 
 interface EnvironmentBtnProps extends RectButtonProps {
   title: string;
