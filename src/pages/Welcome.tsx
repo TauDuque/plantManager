@@ -42,13 +42,11 @@ export function Welcome() {
         </Text>
 
         <TouchableOpacity style={styles.btn} activeOpacity={0.7}>
-          <Text>
-            <Feather
-              name="chevron-right"
-              style={styles.btnIcon}
-              onPress={handleStart}
-            />
-          </Text>
+          <Feather
+            name="chevron-right"
+            style={styles.btnIcon}
+            onPress={handleStart}
+          />
         </TouchableOpacity>
       </View>
     </SafeAreaView>
