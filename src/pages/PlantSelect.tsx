@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   SafeAreaView,
   StyleSheet,
@@ -19,8 +19,20 @@ import fonts from "../styles/fonts";
 import { Button } from "../components/Button";
 import { Header } from "../components/Header";
 import { EnvironmentBtn } from "../components/EnvironmentBtn";
+import api from "../services/api";
+
+interface EnvironmentProps {}
 
 export function PlantSelect() {
+  const [envionments, setEnvironments] = useState();
+
+  useEffect(() => {
+    async function fetchEnvironment() {
+      const { data } = await api.get("plants_environments");
+    }
+    fetchEnvironment();
+  }, []);
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
